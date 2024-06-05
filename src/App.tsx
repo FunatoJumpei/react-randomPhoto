@@ -12,7 +12,7 @@ function App() {
     });
   };
   return (
-    <div style={}>
+    <div className="App">
       <button onClick={onClickFeatchPhoto}>クリック</button>
       <br />
       {photoUrl && <img src={photoUrl} />}
