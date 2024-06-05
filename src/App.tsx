@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <button onClick={onClickFeatchPhoto}>クリック</button>
       <br />
-      {photoUrl && <img src={photoUrl} />}
+      <img src={photoUrl} />
     </div>
   );
 }
