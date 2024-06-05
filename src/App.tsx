@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
 
 function App() {
+  const [photoUrl, setPhotoUrl] = useState("");
+
+  const onClickFeatchPhoto = () => {
+    axios.get("https://source.unsplash.com/random").then((res) => {
+      setPhotoUrl(res.request.responseURL);
+    });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={}>
+      <button onClick={onClickFeatchPhoto}>クリック</button>
+      <br />
+      {photoUrl && <img src={photoUrl} />}
     </div>
   );
 }
